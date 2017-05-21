@@ -42,9 +42,9 @@ body.landing {
     -webkit-transition: all 3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     -moz-transition: all 3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     transition: all 3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    -webkit-transition-delay: 0.5s;
-    -moz-transition-delay: 0.5s;
-    transition-delay: 0.5s;
+    -webkit-transition-delay: 0.1s;
+    -moz-transition-delay: 0.1s;
+    transition-delay: 0.1s;
 }
 
 .point .point-title {
