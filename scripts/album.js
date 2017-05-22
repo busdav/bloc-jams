@@ -1,4 +1,3 @@
-// Example Album
 var albumPicasso = {
     title: 'The Colors',
     artist: 'Pablo Picasso',
@@ -14,7 +13,6 @@ var albumPicasso = {
     ]
 };
 
-// Another Example Album
 var albumMarconi = {
     title: 'The Telephone',
     artist: 'Guglielmo Marconi',
@@ -30,6 +28,22 @@ var albumMarconi = {
     ]
 };
 
+
+var albumPizzas = {
+    title: 'Let\'s roll it',
+    artist: 'Giovanni Giuseppe',
+    label: 'Universal',
+    year: '1990',
+    albumArtUrl: 'assets/images/album_covers/17.png',
+    songs: [
+        { title: 'Quattro Staggione', duration: '2:01' },
+        { title: 'Con Wurstel', duration: '4:01' },
+        { title: 'Calzone', duration: '3:41'},
+        { title: 'Olio e Aglio', duration: '8:14' },
+        { title: 'Con Prosciutto Crudo', duration: '7:15'}
+    ]
+};
+
 var createSongRow = function(songNumber, songName, songLength) {
     var template =
        '<tr class="album-view-song-item">'
@@ -42,24 +56,23 @@ var createSongRow = function(songNumber, songName, songLength) {
     return template;
 };
 
-var setCurrentAlbum = function(album) {
-    // #1
-    var albumTitle = document.getElementsByClassName('album-view-title')[0];
-    var albumArtist = document.getElementsByClassName('album-view-artist')[0];
-    var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
-    var albumImage = document.getElementsByClassName('album-cover-art')[0];
-    var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
 
-    // #2
+  var albumTitle = document.getElementsByClassName('album-view-title')[0];
+  var albumArtist = document.getElementsByClassName('album-view-artist')[0];
+  var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
+  var albumImage = document.getElementsByClassName('album-cover-art')[0];
+  var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
+
+var setCurrentAlbum = function(album) {
+
+
     albumTitle.firstChild.nodeValue = album.title;
     albumArtist.firstChild.nodeValue = album.artist;
     albumReleaseInfo.firstChild.nodeValue = album.year + ' ' + album.label;
     albumImage.setAttribute('src', album.albumArtUrl);
 
-    // #3
     albumSongList.innerHTML = '';
 
-    // #4
     for (var i = 0; i < album.songs.length; i++) {
         albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
     }
@@ -67,4 +80,16 @@ var setCurrentAlbum = function(album) {
 
 window.onload = function() {
     setCurrentAlbum(albumPicasso);
+
+    var albums = [albumPicasso, albumMarconi, albumPizzas];
+    var index = 1;
+
+    albumImage.addEventListener("click", function(event) {
+        setCurrentAlbum(albums[index]);
+        index ++;
+        if (index == albums.length) {
+            index = 0; 
+        }
+    });
+
 };
