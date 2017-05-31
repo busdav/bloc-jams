@@ -4,6 +4,7 @@ body.album {
     background-attachment: fixed;
     background-position: center center;
     background-size: cover;
+    padding-bottom: 200px; 
 }
 
 .album-cover-art {
@@ -91,7 +92,6 @@ body.album {
     }
 }
 
-/* #3 */
 @media (max-width: 1024px) and (min-width: 320px) {
    .album-view-song-list {
         position: relative;
