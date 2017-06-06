@@ -125,7 +125,7 @@ var nextSong = function() {
     // Update the Player Bar information
     updatePlayerBarSong();
 
-    var $nextSongNumberCell =
+    var $nextSongNumberCell = getSongNumberCell(currentlyPlayingSongNumber);
     var $lastSongNumberCell = getSongNumberCell(lastSongNumber);
 
     $nextSongNumberCell.html(pauseButtonTemplate);
